@@ -1,0 +1,23 @@
+﻿Apuntes de PRG
+
+
+trim() => sirve para eliminar espacios al principio y al final
+explode() =>  divide una cadena en partes usando un separador (= en este caso).
+print_r() => sirve para imprimir todo un array de golpe sin usar un for
+
+250 + 160+122+53+1200+50+86+170+30+170+30+60+755+14+17+200´
+
+file_exists() => devuleve true si existe un archivo
+file($fitxer, FILE_IGNORE_NEW_LINES(ignora el salta de linia q genera)|FILE_SKIP_EMPTY_LINES(no añadas linias vacias))
+ => el metodo file sirve para recorrer un archivo donde cada fila del arvhivo es un elemento de array
+
+
+$conn = new (la \ nos indica que viene de una clase de php)\mysqli('localhost', 'root', 'pass', 'basedatos'); => asi se crea una conexion con una DB
+
+query() => es un metodo para hacer consultar con objetos mysqli
+
+    echo "<pre>"; // todo lo que vaya dentro de la etiqueta <pre> le da un formato a las cosas
+    print_r($content);
+    echo "</pre>";
+
+isset()-> comprueba si una variable existe y no es null
