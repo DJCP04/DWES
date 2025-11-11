@@ -18,8 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
         $department->save();
         echo "<script>
-            alert('✅ Customer añadido correctamente');
-            window.location.href = 'Department_list.php';
+            alert('✅ Departamento añadido correctamente');
+            window.location.href = 'Departments_list.php';
         </script>";
         exit;
     } catch (Exception $e) {

@@ -15,7 +15,9 @@ if (isset($_GET['id'])) {
                 alert('✅ Department eliminado correctamente');
               </script>";
     } catch (Exception $e) {
-        echo "<p>Error en eliminar el Department: " . $e->getMessage() . "</p>";
+        echo "<script>
+        alert('❌ ERROR AL ELIMINAR EL DEPARTMENT: " . addslashes($e->getMessage()) . "');
+    </script>";
     }
 }
 require('./Departments_list.php');

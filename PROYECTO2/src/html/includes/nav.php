@@ -23,5 +23,10 @@
 						<li><a href="/src/html/orders/orders_list.php">Orders</a></li>
 					</ul>
 				</li>
+				<button style="background-color: red">
+					<a style=" color: white" href="/src/logs/logout.php">Tancar Sessió</a>
+
+				</button>
+
 			</ul>
 		</div>

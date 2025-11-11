@@ -1,13 +1,19 @@
 <?php
+
 require('../includes/header.php');
 require('../includes/nav.php');
-
 require '../../../vendor/autoload.php';
 
 use Models\Department;
 
 $departments = Department::all();
 ?>
+
+<script>
+	function confirmDelete(id, name) {
+		return confirm(`¿Estás seguro que deseas eliminar el departamento ${name}?`);
+	}
+</script>
 
 <div id="section">
 	<h3>Department</h3>
@@ -19,7 +25,9 @@ $departments = Department::all();
 				<th>Manager ID</th>
 				<th>Location ID</th>
 				<th>Actions
-					<a href="Formulario.php" class="mr-2" title="New File" data-toggle="tooltip"><span class="fa fa-pencil-square-o"></span></a>
+					<a href="Formulario.php" class="mr-2" title="New File" data-toggle="tooltip">
+						<span class="fa fa-pencil-square-o"></span>
+					</a>
 				</th>
 			</tr>
 		</thead>
@@ -34,7 +42,7 @@ $departments = Department::all();
 					"<td>" . $row->location_id   . "</td>" .
 					"<td>" .
 					'<a href="Update.php?id=' . $row->department_id . '&name=' . $row->department_name . '&manager=' . $row->manager_id . '&location=' . $row->location_id . '" class="mr-2" title="Update File" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>' .
-					'<a href="Destroy.php?id=' . $row->department_id . '" class="mr-2" title="Delete File" data-toggle="tooltip"><span class="fa fa-trash"></span></a>'               .
+					'<a href="Destroy.php?id=' . $row->department_id . '" onclick="return confirmDelete(\'' . $row->department_id . '\', \'' . htmlspecialchars($row->department_name, ENT_QUOTES) . '\')" class="mr-2" title="Delete File" data-toggle="tooltip"><span class="fa fa-trash"></span></a>' .
 					"</td>" .
 					"</tr>";
 			}

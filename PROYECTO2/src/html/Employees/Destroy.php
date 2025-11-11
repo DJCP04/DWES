@@ -1,22 +1,25 @@
 <?php
-
 require '../../../vendor/autoload.php';
 
-use models\Employee;
-
+use Models\Employee;
 
 if (isset($_GET['id'])) {
     try {
-        //Si tu Customer acepta el id en el constructor:
         $id = $_GET['id'];
-        $employee = new Employee($id);
+        $employee = new Employee();
         $employee->employee_id = $id;
         $employee->destroy();
+
         echo "<script>
                 alert('✅ Employee eliminado correctamente');
+                window.location.href = 'Employees_list.php';
               </script>";
+        exit;
     } catch (Exception $e) {
-        echo "<p>Error en eliminar el Employee: " . $e->getMessage() . "</p>";
+        echo "<script>
+                alert('❌ Error al eliminar: " . addslashes($e->getMessage()) . "');
+                window.location.href = 'Employees_list.php';
+              </script>";
+        exit;
     }
 }
-require('./Employees_list.php');

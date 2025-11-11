@@ -1,0 +1,117 @@
+/* Fondo general */
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e0e0e0;
+  overflow: hidden;
+}
+
+/* Efecto de brillo animado */
+body::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(45deg, #00ffe7, #0072ff, #9b00ff, #00ffe7);
+  background-size: 600% 600%;
+  border-radius: 50%;
+  filter: blur(120px);
+  animation: glow 10s ease infinite;
+  z-index: 0;
+}
+
+@keyframes glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Contenedor del login */
+form {
+  position: relative;
+  z-index: 1;
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 40px 50px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  width: 320px;
+  text-align: center;
+}
+
+h2 {
+  color: #00ffe7;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin: 10px 0 5px;
+  color: #b0ffff;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #00ffe7;
+  background: transparent;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #9b00ff;
+  box-shadow: 0 0 8px #9b00ff;
+}
+
+input[type="submit"] {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #00ffe7, #0072ff, #9b00ff);
+  background-size: 300% 300%;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s;
+  animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+input[type="submit"]:hover {
+  box-shadow: 0 0 15px #00ffe7;
+  transform: scale(1.05);
+}
