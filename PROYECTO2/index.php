@@ -1,3 +1,7 @@
+<?php
+// Captura el parámetro de error si existe
+$error = $_GET['error'] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -18,6 +22,12 @@
     <input type="password" id="password" name="password" required />
 
     <input type="submit" value="Iniciar Sessió" />
+    <?php if ($error): ?>
+      <div class="error-box">
+        ⚠️ Credenciales incorrectas
+      </div>
+    <?php endif; ?>
+
   </form>
 </body>
 

@@ -1,26 +1,27 @@
 <?php
-session_start(); // associa la sessió a l'actual
-ob_start();  // necessari per a la redirecció de 'header()': resetea el buffer de sortida
+session_start();
+ob_start();
 
-// Array d'usuaris possibles
+// Array de usuarios posibles
 $users = [
     'root' => 'educacio1234',
     'user2' => 'password2',
 ];
 
-// Recollida de variables
-$username = $_POST['username'];
-$password = $_POST['password'];
+// Recogida de variables
+$username = $_POST['username'] ?? '';
+$password = $_POST['password'] ?? '';
 
-// Comprovació de l''username' i 'password'
+// Comprobación de usuario y contraseña
 if (isset($users[$username]) && $users[$username] === $password) {
-    $_SESSION['username'] = $username;  // Inclou dades de l'usuari a '$_SESSION'
-    header("Location: intranet.php");  // redirecció a 'intranet.php'
-    exit();  // garanteix que no s'executi més codi
+    $_SESSION['username'] = $username;
+    header("Location: intranet.php");
+    exit();
 } else {
-    // Credencials incorrectes
-
-    echo "Credencials incorrectes.";
+    // Redirige al login con mensaje de error
+    $alert = urlencode("⚠️ Usuario o contraseña incorrectos");
+    header("Location: /index.php?error=1");
+    exit();
 }
 
-ob_end_flush();  // necessari per a la redirecció de 'header()': envia la sortida enmagatzemada en el buffer
+ob_end_flush();
