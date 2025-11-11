@@ -1,4 +1,7 @@
 <?php
+
+use Carbon\Carbon;
+
 require('../includes/header.php');
 require('../includes/nav.php');
 
@@ -41,6 +44,7 @@ $employees = Employee::all();
 				<th>Last Name</th>
 				<th>First Name</th>
 				<th>Department</th>
+				<th>Hire Date</th>
 				<th>Job ID</th>
 				<th>Actions
 					<a href="Formulario.php" class="mr-2" title="New File" data-toggle="tooltip">
@@ -56,6 +60,9 @@ $employees = Employee::all();
 					<td><?= htmlspecialchars($row->last_name) ?></td>
 					<td><?= htmlspecialchars($row->first_name) ?></td>
 					<td><?= $row->department_id ?></td>
+					<td>
+						<?= $row->hire_date ? \Carbon\Carbon::parse($row->hire_date)->format('d/m/Y') : '' ?>
+					</td>
 					<td><?= $row->job_id ?></td>
 					<td>
 						<a href="Update.php?id=<?= $row->employee_id ?>&name=<?= urlencode($row->first_name) ?>&last_name=<?= urlencode($row->last_name) ?>&email=<?= urlencode($row->email) ?>&phone=<?= urlencode($row->phone_number) ?>&hire_date=<?= $row->hire_date ?>&job_id=<?= urlencode($row->job_id) ?>&salary=<?= $row->salary ?>&commission=<?= $row->commission_pct ?>&manager_id=<?= $row->manager_id ?>&dep_id=<?= $row->department_id ?>" class="mr-2" title="Update File" data-toggle="tooltip">
